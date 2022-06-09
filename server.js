@@ -9,6 +9,7 @@ const path = require("path");
 //route includes
 const homeRoute = require('./routes/homeRoute.js');
 const publicRoute = require('./routes/public.js');
+const characterSheetRoute = require('./routes/characterSheet.js');
 //handlebars setup
 const hbs = handlebars.create({
     ext: '.hbs',
@@ -21,8 +22,8 @@ const app = express();
 app.engine('.hbs', hbs.engine);
 app.set('view engine', 'hbs');
 app.set('views', './views');
-//app.use(express.static(path.join(__dirname,'/public')));
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname,'/public')));
+//app.use(express.static('public'));
 app.use(express.urlencoded({extended: true}));
 app.use((req,res,next) => {
     let route = req.path.substring(1);
@@ -33,6 +34,7 @@ app.use((req,res,next) => {
 const port = process.env.PORT || 8080;
 
 app.use('/', homeRoute);
+app.use('/characterSheet', characterSheetRoute);
 
 
 app.listen(port, () =>{
