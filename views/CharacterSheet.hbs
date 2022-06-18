@@ -1,90 +1,219 @@
 <body>
-    <div id="character-info" class="section">
-        <div id="name"></div>
-        <div id="player"></div>
-        <div id="species"></div>
-        <div id="classLevel-1"></div>
-        <div id="age"></div>
-        <div id="gender"></div>
-        <div id="height"></div>
-        <div id="weight"></div>
-    </div>
-
-    <div id="dark-side-score" class ="section">
-
-    </div>
-
-    <div id="character-stats" class="section">
-        <div id="strength"></div>
-        <div id="dexterity"></div>
-        <div id="constitution"></div>
-        <div id="intelligence"></div>
-        <div id="wisdom"></div>
-        <div id="charisma"></div>
-    </div>
-
-    <div id="condition-tracker" class="section"></div>
-
-    <div id="hit-points" class="section"></div>
-
-    <div id="quick-reference" class="section">
-        <div id="speed"></div>
-        <div id="initiative-bonus"></div>
-        <div id="base-attack-bonus"></div>
-    <div id="damage-threshold" class="subsection">
-        
-    </div>
-        <div id="force-points"></div>
-        <div id="destiny-points"></div>
-    </div>
-
-    <div id="defenses" class="section">
-        <div id="resistances" class="subsection">
-            <div id="dmg-resistance"></div>
-            <div id="shield-resistance"></div>
+    <div class="character-sheet">
+        <div id="primary-character-info" class="row">
+            <div id="character-info" class="character-section">
+                <div class="row">
+                    <div id="name" class="section-item">
+                        <h2 id="character-name">Character Name:</h2>
+                        <p>{{character.name}}</p>
+                        {{!-- <input type="text" id="character-name-input" class="character-info-input"/> --}}
+                    </div>
+                    <div id="player" class="section-item">
+                        <h3 id="character-player">Player:</h3>
+                        <p>{{character.playerName}}</p>
+                        {{!-- <input type="text" id="character-player-input" class="character-info-input"/> --}}
+                    </div>
+                    <div id="species" class="section-item">
+                        <h3 id="character-species">Species:</h3>
+                        <p>{{character.species}}</p>
+                        {{!-- <input type="text" id="character-species-input" class="character-info-input"/> --}}
+                    </div>
+                </div>
+                <div class="row">
+                    <div id="age" class="section-item">
+                        <h3 id="character-age">Age:</h3>
+                        <p>{{character.age}}</p>
+                        {{!-- <input type="text" id="character-age-input" class="character-info-input"/> --}}
+                    </div>
+                    <div id="gender" class="section-item">
+                        <h3 id="character-gender">Gender: </h3>
+                        <p>{{character.name}}</p>
+                        {{!-- <input type="text" id="character-gender-input" class="character-info-input"/> --}}
+                    </div>
+                    <div id="height" class="section-item">
+                        <h3 id="character-height">Height:</h3>
+                        <p>{{character.height}}</p>
+                        {{!-- <input type="text" id="character-height-input" class="character-info-input"/> --}}
+                    </div>
+                    <div id="weight" class="section-item">
+                        <h3 id="character-weight">Weight:</h3>
+                        <p>{{character.weight}}</p>
+                        {{!-- <input type="text" id="character-weight-input" class="character-info-input"/> --}}
+                    </div>
+                </div>
+            </div>
+            <div class="character-section" id="classLevel">
+                        <div class="classLevel-subsect">
+                            <h3 id="character-class-1">Class:</h3>
+                            <p>{{character.class1}}</p>
+                            {{!-- <input type="text" id="character-class-input" class="character-info-input"/> --}}
+                        </div>
+                        <div class="classLevel-subsect">
+                            <h3 id="character-class1-level">Level:</h3>
+                            <p>{{character.class1.level}}</p>
+                            {{!-- <input type="number" id="character-level-input" class="character-info-input character-info-input-number"/> --}}
+                        </div>
+            </div>
         </div>
-    </div>
 
-    <div id="defense-classes" class="subsection">
-        <div id="fortitude-defence" class="detail-section"></div>
-        <div id="reflex-defence" class="detail-section"></div>
-        <div id="will-defence" class="detail-section"></div>
-    </div>
-    </div>
+        <div id="darkside-condition-row" class="row">
+            <div id="dark-side-score" class ="character-section">
+                <div id="dark-side-score-tracker" class="section-item">
+                    <h3 id="character-dark-side-score">Dark Side Score:</h3>
+                    {{!-- <input type="number" id="character-level-input" class="character-info-input character-info-input-number"/> --}}
+                </div>
+            </div>
 
-    <div id="special-combat-actions" class="subsection">
+            <div id="condition-tracker" class="condition-tracker character-section row">
+                <h2 id="condition-tracker-title">Condition Tracker</h2>
+                <div class="condition-tracker-step">
+                    <div id="condition-tracker-step-primary-info" class="row">
+                        <h3>-1</h3>
+                        {{!-- <button type="radial"></button> --}}
+                    </div>
+                    <p>-1 to ability checks, attacks, and defenses</p>
+                </div>
+                <div class="condition-tracker-step">
+                    <div id="condition-tracker-step-primary-info" class="row">
+                        <h3>-2</h3>
+                        {{!-- <button type="radial"></button> --}}
+                    </div>
+                    <p>-2 to ability checks, attacks, and defenses</p>
+                </div>
+                <div class="condition-tracker-step">
+                    <div id="condition-tracker-step-primary-info" class="row">
+                        <h3>-5</h3>
+                        {{!-- <button type="radial"></button> --}}
+                    </div>
+                    <p>-5 to ability checks, attacks, and defenses</p>
+                </div>
+                <div class="condition-tracker-step">
+                    <div id="condition-tracker-step-primary-info" class="row">
+                        <h3>-10</h3>
+                        {{!-- <button type="radial"></button> --}}
+                    </div>
+                    <p>-10 to ability checks, attacks, and defenses</p>
+                </div>
+                <div class="hp-tracker">
+                    <h4>Current HP/Max HP</h4>
+                    <p id="hp-currentMax">{{character.hp.current}}/{{character.hp.max}}</p>
+                    <button id="hp-modify-heal" class="hp-modify-type ">Heal</button>
+                    <button id="hp-modify-damage" class="hp-modify-type">Damage</button>
+                    <input type="number" id="hp-modify" class="character-info-input character-info-input-number"/>
+                </div>
+            </div>
+        </div>
 
-    </div>
+        <div class="row">
+            <div id="character-attributes" class="character-section row">
+                <div id="strength" class="character-attribute">
+                    <h3>Strength</h3>
+                    <h4>{{character.str}}</h4>
+                    {{!-- <input type="number" class="character-info-input character-info-input-number character-attribute-score-input" id="character-attribute-str"/> --}}
+                    <h4 class="attribute-modifier">Modifier: {{character.str.bonus}}</h4>
+                </div>
+                <div id="dexterity" class="character-attribute">
+                    <h3>Dexterity</h3>
+                    <h4>{{character.dex}}</h4>
+                    {{!-- <input type="number" class="character-info-input character-info-input-number character-attribute-score-input" id="character-attribute-dex"/> --}}
+                    <h4 class="attribute-modifier">Modifier: {{character.dex.bonus}}</h4>
+                </div>
+                <div id="constitution" class="character-attribute">
+                    <h3>Constitution</h3>
+                    <h4>{{character.con}}</h4>
+                    {{!-- <input type="number" class="character-info-input character-info-input-number character-attribute-score-input" id="character-attribute-con"/> --}}
+                    <h4 class="attribute-modifier">Modifier: {{character.con.bonus}}</h4>
+                </div>
+                <div id="intelligence" class="character-attribute">
+                    <h3>Intelligence</h3>
+                    <h4>{{character.int}}</h4>
+                    {{!-- <input type="number" class="character-info-input character-info-input-number character-attribute-score-input" id="character-attribute-int"/> --}}
+                    <h4 class="attribute-modifier">Modifier: {{character.int.bonus}}</h4>
+                </div>
+                <div id="wisdom" class="character-attribute">
+                    <h3>Wisdom</h3>
+                    <h4>{{character.wis}}</h4>
+                    {{!-- <input type="number" class="character-info-input character-info-input-number character-attribute-score-input" id="character-attribute-wis"/> --}}
+                    <h4 class="attribute-modifier">Modifier: {{character.wis.bonus}}</h4>
+                </div>
+                <div id="charisma" class="character-attribute">
+                    <h3>Charisma</h3>
+                    <h4>{{character.cha}}</h4>
+                    {{!-- <input type="number" class="character-info-input character-info-input-number character-attribute-score-input" id="character-attribute-cha"/> --}}
+                    <h4 class="attribute-modifier">Modifier: {{character.cha.bonus}}</h4>
+                </div>
+            </div>
 
-    <div id="force-powers" class="section">
-        
-    </div>
+            {{!-- <div id="quick-reference" class="character-section">
+                <div id="speed" class="quick-ref-item">
+                    <h3>Movement: {{character.movement}}</h3>
+                </div>
+                <div id="initiative-bonus" class="quick-ref-item">
+                    <h3>Initiative bonus: {{character.initiativeBonus}}</h3>
+                </div>
+                <div id="base-attack-bonus" class="quick-ref-item">
+                    <h3>Movement: {{character.initiativeBonus}}</h3>
+                </div>
+                <div id="damage-threshold" class="quick-ref-item">
+                    <h3>Damage threshold: {{character.damageThreshold}}</h3>
+                </div>
+                <div id="force-points" class="quick-ref-item">
+                    <h3>Force points: {{character.forcePoints}}</h3>
+                </div>
+                <div id="destiny-points" class="quick-ref-item">
+                    <h3>Destiny points: {{character.destinyPoints}}</h3>
+                    </div>
+            </div> --}}
+        </div>
 
-    <div id="skills" class="subsection">
-        <div id="acrobatics" class="skill-details">
+        <div id="defenses" class="section">
+            <div id="resistances" class="subsection">
+                <div id="dmg-resistance"></div>
+                <div id="shield-resistance"></div>
+            </div>
+        </div>
+
+        <div id="defense-classes" class="subsection">
+            <div id="fortitude-defence" class="defense-section"></div>
+            <div id="reflex-defence" class="defense-section"></div>
+            <div id="will-defence" class="defense-section"></div>
+        </div>
+        </div>
+
+        <div id="special-combat-actions" class="subsection">
 
         </div>
-    </div>
 
-    <div id="weapons" class="subsection">
-        <div id="weapon-1" class="weapon-details">
-
-        </div>
-    </div>
-
-    <div id="inventory" class="section">
-        <div id="item" class="item-details">
+        <div id="force-powers" class="section">
             
         </div>
-        <div id="credits"></div>
-    </div>
 
-    <div id="feats" class="section">
+        <div id="skills" class="subsection">
+            <div id="acrobatics" class="skill-details">
 
-    </div>
+            </div>
+        </div>
 
-    <div id="talents" class="section">
+        <div id="weapons" class="subsection">
+            <div id="weapon-1" class="weapon-details">
 
+            </div>
+        </div>
+
+        <div id="inventory" class="section">
+            <div id="item" class="item-details">
+                
+            </div>
+            <div id="credits"></div>
+        </div>
+
+        <div id="feats" class="section">
+
+        </div>
+
+        <div id="talents" class="section">
+
+        </div>
     </div>
 </body>
 
