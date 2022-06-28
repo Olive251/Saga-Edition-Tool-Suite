@@ -17,6 +17,15 @@ const hbs = handlebars.create({
     }
 })
 
+//Mongoose setup
+const mongoose = require("mongoose");
+mongoose.connect(
+    "mongodb://localhost/SEcharacters",
+    () => {console.log("connectred to database...")},
+    (err) => console.error(err)
+)
+const Character = require("./character.js");
+
 //express setup
 const app = express();
 app.engine('.hbs', hbs.engine);
@@ -37,8 +46,20 @@ app.use('/characterSheet', characterSheetRoute);
 
 
 app.listen(port, () =>{
-    console.log(`App is listening at ${port}`);
+    console.log(`App is listening at ${port}`,
+    async function testCharacter() {
+        const character = await Character.create({name: "Arma", classLvl: {class: "soldier", level: 5}});
+        await character.save();
+    
+        console.log(character);
+    });
 })
 
-//storage for data
-//const cFile = (path.join(__dirname, "data", "characters.json"));
+//testing character db
+
+async function testCharacter() {
+    const character = await Character.create({name: "Arma", classLvl: {class: "soldier", level: 5}});
+    await character.save();
+
+    console.log(character);
+}
