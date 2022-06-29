@@ -32,18 +32,22 @@ h4{
     width: 20%;
     flex-wrap: wrap;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     margin: 0 auto;
-    justify-content: center;
+    min-width: fit-content;
     align-items: center;
 }
 .homeMenuOption{
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     text-align:center;
     align-items: center;
     padding: 8pt;
+}
+.homeMenuCard button{
+    padding: 4px;
+    margin: 4px;
+    font-weight: bolder;
 }
 .character-section{
     flex-direction: column;
@@ -154,6 +158,14 @@ h4{
     border-width: .5px;
     border-radius: 5px;
     margin: 4px;
+}
+#newCharacter{
+    padding: 4px;
+    margin: 4px;
+    background-color: slategrey;
+    border-style: groove;
+    border-width: .5px;
+    border-radius: 5px;
 }
 #classLevel{
     padding: 7px;

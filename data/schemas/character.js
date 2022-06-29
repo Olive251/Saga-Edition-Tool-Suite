@@ -13,14 +13,23 @@ const classLvlSchema = new mongoose.Schema({
     class: String,
     level: Number,
 })
+
 const featSchema = new mongoose.Schema({
     name: String
 })
+
 const talentSchema = new mongoose.Schema({
     name: String
 })
+
 const forcePowersSchema = new mongoose.Schema({
     name: String,
+})
+
+const c_defensesSchema = new mongoose.Schema({
+    fortitude: {total: Number, lvlArmorBonus: Number, classBonus: Number, abilityModifer: Number, miscModifier: Number,},
+    reflex: {total: Number, lvlArmorBonus: Number, classBonus: Number, abilityModifer: Number, miscModifier: Number,},
+    will: {total: Number, lvlArmorBonus: Number, classBonus: Number, abilityModifer: Number, miscModifier: Number,},
 })
 
 const skillsSchema = new mongoose.Schema({
@@ -53,11 +62,14 @@ const characterSchema = new mongoose.Schema({
     class: [classLvlSchema],
     hp: {
         max: Number, 
-        current: Number
+        current: Number,
+        conditionTrack: Number,
     },
     abilities: c_abilitiesSchema,
+    defenses: c_defencesSchema,
     forcePoints: Number,
     destinyPoints: Number,
+    darksidePoints: Number,
     skills: skillsSchema,
     feats: [{name: String}],
     talents: [{name:String}],

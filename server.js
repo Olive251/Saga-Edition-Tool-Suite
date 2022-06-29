@@ -6,7 +6,7 @@
 const express = require("express");
 const handlebars = require('express-handlebars');
 const path = require("path");
-
+const sampleData = require('./data/sampleCharacters.js');
 //route includes
 const homeRoute = require('./routes/homeRoute.js');
 const publicRoute = require('./routes/public.js');
@@ -48,4 +48,5 @@ app.use('/characterSheet', characterSheetRoute);
 
 app.listen(port, () =>{
     console.log(`App is listening at ${port}`);
+    sampleData.buildSampleCharacters();
 })
