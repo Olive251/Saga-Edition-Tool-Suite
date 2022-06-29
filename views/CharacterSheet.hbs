@@ -61,7 +61,7 @@
         <div id="darkside-condition-row" class="row">
             <div id="dark-side-score" class ="character-section">
                 <div id="dark-side-score-tracker" class="section-item">
-                    <h3 id="character-dark-side-score">Dark Side Score:</h3>
+                    <h3 id="character-dark-side-score">Dark Side Score: {{character.darksidePoints}}</h3>
                     {{!-- <input type="number" id="character-level-input" class="character-info-input character-info-input-number"/> --}}
                 </div>
             </div>
@@ -112,7 +112,7 @@
                     <h3>Strength</h3>
                     <h4>{{character.abilities.strength.score}}</h4>
                     {{!-- <input type="number" class="character-info-input character-info-input-number character-attribute-score-input" id="character-attribute-str"/> --}}
-                    <h4 class="attribute-modifier">Modifier: {{character.abilities.strenth.bonus}}</h4>
+                    <h4 class="attribute-modifier">Modifier: {{character.abilities.strength.bonus}}</h4>
                 </div>
                 <div id="dexterity" class="character-attribute">
                     <h3>Dexterity</h3>

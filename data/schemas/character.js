@@ -66,7 +66,7 @@ const characterSchema = new mongoose.Schema({
         conditionTrack: Number,
     },
     abilities: c_abilitiesSchema,
-    defenses: c_defencesSchema,
+    defenses: c_defensesSchema,
     forcePoints: Number,
     destinyPoints: Number,
     darksidePoints: Number,

@@ -13,24 +13,23 @@ const test = require('../data/sampleCharacters.js');
 
 router.get('/', async (req,res) => {
     
-    let arma = await test.testCharacter();
-    console.log(arma);
-
-    res.render('CharacterSheet', {character: arma});
-    
 })
-router.get('/:scharacter', async(req,res) => {
-    //TODO : update to use ids once the data is created
-    if(req.query.scharacter) {
+router.get('/:character', async(req,res) => {
+    
         mongoose.connect(
-            "mongodb://localhost/SEcharacters",
-            () => {console.log("connected to database...")},
-            (err) => console.error(err)
-        );
-        let viewSCharacter = await Character.find({name: req.query.scharacter});
+        "mongodb://localhost/SEcharacters",
+        () => {console.log("connected to database...")},
+        (err) => console.error(err)
+    );
+    
+    let searchID = req.params.character;
+    let viewCharacter = await Character.find({_id: searchID}).lean();
+    res.render('CharacterSheet', {character: viewCharacter[0]})
 
-        res.render('CharacterSheet', viewSCharacter)
-    }
+    mongoose.connection.close(() => {
+        console.log("Connection to database closed...");
+    });
+ 
 })
 
 module.exports = router;
