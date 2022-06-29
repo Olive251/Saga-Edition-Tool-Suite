@@ -147,12 +147,13 @@ h4{
 .quick-ref-item{
     justify-content: center;
     align-items: center;
-    padding: 1%;
+    padding: 4px;
     padding-top: 10px;
     padding-bottom: 10px;
     border-style: groove;
     border-width: .5px;
     border-radius: 5px;
+    margin: 4px;
 }
 #classLevel{
     padding: 7px;
@@ -188,5 +189,5 @@ h4{
     /* flex-direction: column; */
 }
 #quick-reference{
-    width: 30%;
+    width: 12%;
 }

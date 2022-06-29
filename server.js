@@ -6,6 +6,7 @@
 const express = require("express");
 const handlebars = require('express-handlebars');
 const path = require("path");
+
 //route includes
 const homeRoute = require('./routes/homeRoute.js');
 const publicRoute = require('./routes/public.js');
@@ -18,13 +19,13 @@ const hbs = handlebars.create({
 })
 
 //Mongoose setup
-const mongoose = require("mongoose");
-mongoose.connect(
-    "mongodb://localhost/SEcharacters",
-    () => {console.log("connectred to database...")},
-    (err) => console.error(err)
-)
-const Character = require("./character.js");
+// const mongoose = require("mongoose");
+// mongoose.connect(
+//     "mongodb://localhost/SEcharacters",
+//     () => {console.log("connected to database...")},
+//     (err) => console.error(err)
+// )
+
 
 //express setup
 const app = express();
@@ -46,20 +47,5 @@ app.use('/characterSheet', characterSheetRoute);
 
 
 app.listen(port, () =>{
-    console.log(`App is listening at ${port}`,
-    async function testCharacter() {
-        const character = await Character.create({name: "Arma", classLvl: {class: "soldier", level: 5}});
-        await character.save();
-    
-        console.log(character);
-    });
+    console.log(`App is listening at ${port}`);
 })
-
-//testing character db
-
-async function testCharacter() {
-    const character = await Character.create({name: "Arma", classLvl: {class: "soldier", level: 5}});
-    await character.save();
-
-    console.log(character);
-}

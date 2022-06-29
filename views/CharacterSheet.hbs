@@ -25,9 +25,9 @@
                         <p>{{character.age}}</p>
                         {{!-- <input type="text" id="character-age-input" class="character-info-input"/> --}}
                     </div>
-                    <div id="gender" class="section-item">
-                        <h3 id="character-gender">Gender: </h3>
-                        <p>{{character.name}}</p>
+                    <div id="character-pronouns" class="section-item">
+                        <h3 id="pronounse">Pronouns: </h3>
+                        <p>{{character.pronouns}}</p>
                         {{!-- <input type="text" id="character-gender-input" class="character-info-input"/> --}}
                     </div>
                     <div id="height" class="section-item">
@@ -42,18 +42,20 @@
                     </div>
                 </div>
             </div>
+            {{#each character.class}}
             <div class="character-section" id="classLevel">
                         <div class="classLevel-subsect">
-                            <h3 id="character-class-1">Class:</h3>
-                            <p>{{character.class1}}</p>
+                            <h3 id="character-class">Class:</h3>
+                            <p>{{this.class}}</p>
                             {{!-- <input type="text" id="character-class-input" class="character-info-input"/> --}}
                         </div>
                         <div class="classLevel-subsect">
-                            <h3 id="character-class1-level">Level:</h3>
-                            <p>{{character.class1.level}}</p>
+                            <h3 id="character-class-level">Level:</h3>
+                            <p>{{this.level}}</p>
                             {{!-- <input type="number" id="character-level-input" class="character-info-input character-info-input-number"/> --}}
                         </div>
             </div>
+            {{/each}}
         </div>
 
         <div id="darkside-condition-row" class="row">
@@ -108,43 +110,43 @@
             <div id="character-attributes" class="character-section row">
                 <div id="strength" class="character-attribute">
                     <h3>Strength</h3>
-                    <h4>{{character.str}}</h4>
+                    <h4>{{character.abilities.strength.score}}</h4>
                     {{!-- <input type="number" class="character-info-input character-info-input-number character-attribute-score-input" id="character-attribute-str"/> --}}
-                    <h4 class="attribute-modifier">Modifier: {{character.str.bonus}}</h4>
+                    <h4 class="attribute-modifier">Modifier: {{character.abilities.strenth.bonus}}</h4>
                 </div>
                 <div id="dexterity" class="character-attribute">
                     <h3>Dexterity</h3>
-                    <h4>{{character.dex}}</h4>
+                    <h4>{{character.abilities.dexterity.score}}</h4>
                     {{!-- <input type="number" class="character-info-input character-info-input-number character-attribute-score-input" id="character-attribute-dex"/> --}}
-                    <h4 class="attribute-modifier">Modifier: {{character.dex.bonus}}</h4>
+                    <h4 class="attribute-modifier">Modifier: {{character.abilities.dexterity.bonus}}</h4>
                 </div>
                 <div id="constitution" class="character-attribute">
                     <h3>Constitution</h3>
-                    <h4>{{character.con}}</h4>
+                    <h4>{{character.abilities.constitution.score}}</h4>
                     {{!-- <input type="number" class="character-info-input character-info-input-number character-attribute-score-input" id="character-attribute-con"/> --}}
-                    <h4 class="attribute-modifier">Modifier: {{character.con.bonus}}</h4>
+                    <h4 class="attribute-modifier">Modifier: {{character.abilities.constitution.bonus}}</h4>
                 </div>
                 <div id="intelligence" class="character-attribute">
                     <h3>Intelligence</h3>
-                    <h4>{{character.int}}</h4>
+                    <h4>{{character.abilities.intelligence.score}}</h4>
                     {{!-- <input type="number" class="character-info-input character-info-input-number character-attribute-score-input" id="character-attribute-int"/> --}}
-                    <h4 class="attribute-modifier">Modifier: {{character.int.bonus}}</h4>
+                    <h4 class="attribute-modifier">Modifier: {{character.abilities.intelligence.bonus}}</h4>
                 </div>
                 <div id="wisdom" class="character-attribute">
                     <h3>Wisdom</h3>
-                    <h4>{{character.wis}}</h4>
+                    <h4>{{character.abilities.wisdom.score}}</h4>
                     {{!-- <input type="number" class="character-info-input character-info-input-number character-attribute-score-input" id="character-attribute-wis"/> --}}
-                    <h4 class="attribute-modifier">Modifier: {{character.wis.bonus}}</h4>
+                    <h4 class="attribute-modifier">Modifier: {{character.abilities.wisdom.bonus}}</h4>
                 </div>
                 <div id="charisma" class="character-attribute">
                     <h3>Charisma</h3>
-                    <h4>{{character.cha}}</h4>
+                    <h4>{{character.abilities.charisma.score}}</h4>
                     {{!-- <input type="number" class="character-info-input character-info-input-number character-attribute-score-input" id="character-attribute-cha"/> --}}
-                    <h4 class="attribute-modifier">Modifier: {{character.cha.bonus}}</h4>
+                    <h4 class="attribute-modifier">Modifier: {{character.abilities.charisma.bonus}}</h4>
                 </div>
             </div>
 
-            {{!-- <div id="quick-reference" class="character-section">
+            <div id="quick-reference" class="character-section">
                 <div id="speed" class="quick-ref-item">
                     <h3>Movement: {{character.movement}}</h3>
                 </div>
@@ -162,8 +164,8 @@
                 </div>
                 <div id="destiny-points" class="quick-ref-item">
                     <h3>Destiny points: {{character.destinyPoints}}</h3>
-                    </div>
-            </div> --}}
+                </div>
+            </div>
         </div>
 
         <div id="defenses" class="section">
