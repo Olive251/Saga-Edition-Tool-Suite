@@ -2,7 +2,7 @@ const mongoose = require ('mongoose');
 
 const Rules_ForcePower = new mongoose.Schema({
     name: String,
-    darkSide: Boolean,
+    descriptorTag: [{type: String, enum: ["Dark Side", "Light Side", "Mind-Affecting", "Telekinetic"]}],
     targets: String,
     initiator: String,
     forceCheckTable: [{
@@ -11,3 +11,5 @@ const Rules_ForcePower = new mongoose.Schema({
     }],
     special: String,
 })
+
+module.exports = mongoose.model("Rules_ForcePower", Rules_ForcePower);

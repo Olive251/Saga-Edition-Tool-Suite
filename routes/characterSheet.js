@@ -12,7 +12,7 @@ const mongoose = require("mongoose");
 const test = require('../data/sampleCharacters.js');
 
 router.get('/', async (req,res) => {
-    
+    test.buildSampleCharacters();
 })
 router.get('/:character', async(req,res) => {
     
