@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 
-const classTable = new mongoose.Schema({
+const classRulesTable = new mongoose.Schema({
+    class: String,
     level: [{
         classLevel: Number,
         baseAttackBonus: Number,
@@ -10,9 +11,14 @@ const classTable = new mongoose.Schema({
 
 const classHP = new mongoose.Schema({
     starting: Number,
-    level: String,
+    leveling: String,
 })
 
 const classStartingFeats = new mongoose.Schema({
     feat: [{type: mongoose.Schema.Types.ObjectId, ref:'r_featSchema'}],
+})
+
+const classSkills = new mongoose.Schema({
+    numOfSkills: String,
+    classSkills: [{type: mongoose.Schema.Types.ObjectId, ref:'r_skill'}],
 })
