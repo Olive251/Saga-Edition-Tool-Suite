@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const c_abilitiesSchema = new mongoose.Schema({
+const Character_Abilities = new mongoose.Schema({
     strength: {score: Number, bonus: Number},
     dexterity: {score: Number, bonus: Number},
     constitution: {score: Number, bonus: Number},
@@ -9,30 +9,31 @@ const c_abilitiesSchema = new mongoose.Schema({
     charisma: {score: Number, bonus: Number},
 })
 
-const classLvlSchema = new mongoose.Schema({
-    class: String,
+const Character_ClassLvl = new mongoose.Schema({
+    className: String,
     level: Number,
+    classRules: {type: mongoose.Schema.Types.ObjectId, ref: 'Rules_Class'},
 })
 
-const featSchema = new mongoose.Schema({
-    name: String
+const Character_Feat = new mongoose.Schema({
+    feat: {type: mongoose.Schema.Types.ObjectId, ref:'Rules_Feat'}
 })
 
-const talentSchema = new mongoose.Schema({
-    name: String
+const Character_Talent = new mongoose.Schema({
+    talent: {type: mongoose.Schema.Types.ObjectId, ref:'Rules_Talent'}
 })
 
-const forcePowersSchema = new mongoose.Schema({
+const Character_ForcePower = new mongoose.Schema({
     name: String,
 })
 
-const c_defensesSchema = new mongoose.Schema({
+const Character_Defenses = new mongoose.Schema({
     fortitude: {total: Number, lvlArmorBonus: Number, classBonus: Number, abilityModifer: Number, miscModifier: Number,},
     reflex: {total: Number, lvlArmorBonus: Number, classBonus: Number, abilityModifer: Number, miscModifier: Number,},
     will: {total: Number, lvlArmorBonus: Number, classBonus: Number, abilityModifer: Number, miscModifier: Number,},
 })
 
-const skillsSchema = new mongoose.Schema({
+const Character_Skills = new mongoose.Schema({
     acrobatics: {trained: Boolean, skillFocus: Number},
 	athletics: {trained: Boolean, skillFocus: Number},
 	deception: {trained: Boolean, skillFocus: Number},
@@ -51,7 +52,7 @@ const skillsSchema = new mongoose.Schema({
 	useTheForce: {trained: Boolean, skillFocus: Number},
 })
 
-const characterSchema = new mongoose.Schema({
+const Character = new mongoose.Schema({
     name: String,
     pronouns: String,
     species: String,
@@ -59,21 +60,21 @@ const characterSchema = new mongoose.Schema({
     height: String,
     weight: String,
     playerName: String,
-    class: [classLvlSchema],
+    class: [Character_ClassLvl],
     hp: {
         max: Number, 
         current: Number,
         conditionTrack: Number,
     },
-    abilities: c_abilitiesSchema,
-    defenses: c_defensesSchema,
+    abilities: Character_Abilities,
+    defenses: Character_Defenses,
     forcePoints: Number,
     destinyPoints: Number,
     darksidePoints: Number,
-    skills: skillsSchema,
-    feats: [{name: String}],
-    talents: [{name:String}],
-    forcePowers: [{name:String}],
+    skills: Character_Skills,
+    feats: [Character_Feat],
+    talents: [Character_Talent],
+    forcePowers: [Character_ForcePower],
 })
 
 module.exports = mongoose.model("Character", characterSchema);

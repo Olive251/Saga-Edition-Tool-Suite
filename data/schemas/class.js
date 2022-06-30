@@ -15,10 +15,14 @@ const classHP = new mongoose.Schema({
 })
 
 const classStartingFeats = new mongoose.Schema({
-    feat: [{type: mongoose.Schema.Types.ObjectId, ref:'r_featSchema'}],
+    feat: [{type: mongoose.Schema.Types.ObjectId, ref:'r_feat'}],
 })
 
 const classSkills = new mongoose.Schema({
     numOfSkills: String,
     classSkills: [{type: mongoose.Schema.Types.ObjectId, ref:'r_skill'}],
+})
+
+const Rules_Class = new mongoose.Schema({
+    
 })
