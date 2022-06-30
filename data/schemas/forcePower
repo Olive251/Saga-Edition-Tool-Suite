@@ -1,0 +1,13 @@
+const mongoose = require ('mongoose');
+
+const Rules_ForcePower = new mongoose.Schema({
+    name: String,
+    darkSide: Boolean,
+    targets: String,
+    initiator: String,
+    forceCheckTable: [{
+        dc: Number,
+        effect: String,
+    }],
+    special: String,
+})

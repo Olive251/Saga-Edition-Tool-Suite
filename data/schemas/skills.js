@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const r_skill = new mongoose.Schema({
+const Rules_Skill = new mongoose.Schema({
     name: String,
     description: String,
     specialRules: [String],

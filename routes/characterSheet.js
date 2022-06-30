@@ -24,7 +24,7 @@ router.get('/:character', async(req,res) => {
     
     let searchID = req.params.character;
     let viewCharacter = await Character.find({_id: searchID}).lean();
-    res.render('CharacterSheet', {character: viewCharacter[0]})
+    res.render('CharacterSheet', {title: `${viewCharacter[0].name}- Character Sheet` ,character: viewCharacter[0]});
 
     mongoose.connection.close(() => {
         console.log("Connection to database closed...");
