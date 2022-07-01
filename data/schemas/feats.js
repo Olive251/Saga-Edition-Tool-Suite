@@ -7,3 +7,5 @@ const Rules_Feat = new mongoose.Schema({
     effect: String,
     normal: String,
 })
+
+module.exports = mongoose.model("Rules_Feat", Rules_Feat);

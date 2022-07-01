@@ -1,12 +1,11 @@
 const mongoose = require("mongoose");
 
 const classRulesTable = new mongoose.Schema({
-    class: String,
-    level: [{
+    level: {
         classLevel: Number,
         baseAttackBonus: Number,
         classFeatures: [String],
-    }]
+    }
 })
 
 const classHP = new mongoose.Schema({
@@ -15,7 +14,7 @@ const classHP = new mongoose.Schema({
 })
 
 const classStartingFeats = new mongoose.Schema({
-    feat: [{type: mongoose.Schema.Types.ObjectId, ref:'r_feat'}],
+    feat: {type: mongoose.Schema.Types.ObjectId, ref:'r_feat'},
 })
 
 const classSkills = new mongoose.Schema({
@@ -24,5 +23,12 @@ const classSkills = new mongoose.Schema({
 })
 
 const Rules_Class = new mongoose.Schema({
-    
+    name: String,
+    classTable: [classRulesTable],
+    hp: classHP,
+    startingFeats: [classStartingFeats],
+    skills: classSkills,
+
 })
+
+module.exports = mongoose.model("Rules_Class", Rules_Class);

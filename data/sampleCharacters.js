@@ -12,7 +12,7 @@ async function buildSampleCharacters() {
         (err) => console.error(err)
     )
 
-    //await Rules_ForcePower.deleteOne({name: "Move Object"});
+    await Rules_ForcePower.deleteOne({name: "Move Object"});
     const moveObject = await Rules_ForcePower.create({
         name: "Move Object",
         descriptorTag: "Telekinetic",
@@ -32,7 +32,7 @@ async function buildSampleCharacters() {
     let moveObjectId = await Rules_ForcePower.find({name: "Move Object"}).lean();
     moveObjectId = moveObjectId[0]._id;
 
-    await Character.deleteMany({});
+    //await Character.deleteMany({});
     try {
         const character = await Character.create({
             name: "Imia Brae",

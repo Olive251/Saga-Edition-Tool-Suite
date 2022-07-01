@@ -14,3 +14,5 @@ const Rules_Species = new mongoose.Schema({
     additionalTraits: {name: String, description: String,},
     speciesFeats: [{type: mongoose.Schema.Types.ObjectId, ref: 'r_feat'}]
 })
+
+module.exports = mongoose.model("Rules_Species", Rules_Species);
