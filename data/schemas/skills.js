@@ -6,3 +6,5 @@ const Rules_Skill = new mongoose.Schema({
     specialRules: [String],
     actions: {name: String, description: String,}
 })
+
+module.esports = mongoose.model("Rules_Skills", Rules_Skills);
