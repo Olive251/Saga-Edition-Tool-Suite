@@ -16,15 +16,22 @@ router.get('/', async (req,res) => {
 })
 router.get('/:character', async(req,res) => {
     
-        mongoose.connect(
+    mongoose.connect(
         "mongodb://localhost/SEcharacters",
         () => {console.log("connected to database...")},
         (err) => console.error(err)
     );
-    
+
     let searchID = req.params.character;
-    let viewCharacter = await Character.find({_id: searchID}).lean();
-    res.render('CharacterSheet', {title: `${viewCharacter[0].name}- Character Sheet` ,character: viewCharacter[0]});
+    try {
+        let viewCharacter;
+        viewCharacter = await Character.find({_id: searchID}).lean();
+        viewCharacter = viewCharacter[0];
+        res.render('CharacterSheet', {title: `${viewCharacter.name}-Character Sheet`, character: viewCharacter});
+    } catch {
+        let msg = `No character with {_id: ${req.params.character}} found...`
+        res.render('404', {title: `ERROR404: ${req.params.character}`, message: msg});
+    }
 
     mongoose.connection.close(() => {
         console.log("Connection to database closed...");
