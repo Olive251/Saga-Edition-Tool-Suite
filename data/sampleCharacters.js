@@ -4,8 +4,6 @@ const Rules_Species = require('./schemas/species.js');
 
 const mongoose = require("mongoose");
 
-
-
 async function buildSampleCharacters() {
     mongoose.connect(
         "mongodb://localhost/SEcharacters",
@@ -13,7 +11,7 @@ async function buildSampleCharacters() {
         (err) => console.error(err)
     )
 
-    if ((await Rules_Species.find({name: "Zabrack"}))){
+    if (!(await Rules_Species.find({name: "Zabrack"}))){
         const zabrack = await Rules_Species.create({
             name: "Zabrack",
             size: "MEDIUM",

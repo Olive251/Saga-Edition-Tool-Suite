@@ -11,7 +11,7 @@ const Rules_Species = new mongoose.Schema({
         Charisma: Number,
     },
     size: {_id: false, type: String, enum: ['SMALL', 'MEDIUM', 'LARGE'], default: 'MEDIUM'},
-    speed: Number,
+    movement: Number,
     additionalTraits: [{_id: false, name: String, description: String,}],
     speciesFeats: [{_id: false, type: mongoose.Schema.Types.ObjectId, ref: 'r_feat'}],
 })
