@@ -7,7 +7,6 @@ const Character = require("../data/schemas/character.js");
 //Mongoose setup
 const mongoose = require("mongoose");
 
-
 //testcharacter
 const test = require('../data/sampleCharacters.js');
 
@@ -24,10 +23,9 @@ router.get('/:character', async(req,res) => {
 
     let searchID = req.params.character;
     try {
-        let viewCharacter;
-        viewCharacter = await Character.find({_id: searchID}).lean();
-        viewCharacter = viewCharacter[0];
-        res.render('CharacterSheet', {title: `${viewCharacter.name}-Character Sheet`, character: viewCharacter});
+        let viewCharacter = await Character.find({_id: searchID}).lean();
+        // viewCharacter = viewCharacter[0];
+        res.render('CharacterSheet', {title: `${viewCharacter[0].name}-Character Sheet`, character: viewCharacter[0]});
     } catch {
         let msg = `No character with {_id: ${req.params.character}} found...`
         res.render('404', {title: `ERROR404: ${req.params.character}`, message: msg});

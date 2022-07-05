@@ -58,7 +58,7 @@ const Character_Skills = new mongoose.Schema({
 const Character = new mongoose.Schema({
     name: String,
     pronouns: String,
-    species: String,
+    species: {_id: false, name: String, speciesRules: {_id: false, type: mongoose.Schema.Types.ObjectId, ref:'Rules_Species'}},
     age: Number,
     height: String,
     weight: String,

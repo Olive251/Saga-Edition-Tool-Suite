@@ -1,5 +1,6 @@
 const Character = require('./schemas/character.js');
 const Rules_ForcePower = require('./schemas/forcePower.js')
+const Rules_Species = require('./schemas/species.js');
 
 const mongoose = require("mongoose");
 
@@ -11,6 +12,22 @@ async function buildSampleCharacters() {
         () => { console.log("connected to database...\nbuilding sample character..."); },
         (err) => console.error(err)
     )
+
+    if (!(await Rules_Species.find({name: "Zabrack"}))){
+        const zabrack = await Rules_Species.create({
+            name: "Zabrack",
+            size: "MEDIUM",
+            speed: 6,
+            additionalTraits: [
+                {name: "Heightened Awareness", description: "Having strong survival instincts and quic reactions, a Zabrack may choose to reroll any Perception check, but the result of the reroll must be accepted, even if it is worse."},
+                {name: "Superior Defenses", description: "Adapted to a very tough and trying environment, Zabrack gain a +1 species bonus to all of their defenses."},
+            ],
+        });
+        await zabrack.save();
+    }
+    let zabrackId = await Rules_Species.find({name: "Zabrack"}).lean();
+    zabrackId = zabrackId[0]._id;
+
 
     if (!(await Character.find({name: "Imia Brae"}))){
         const moveObject = await Rules_ForcePower.create({
@@ -38,7 +55,7 @@ async function buildSampleCharacters() {
             const character = await Character.create({
                 name: "Imia Brae",
                 pronouns: "she/her",
-                species: "Zabrack",
+                species: {name: "Zabrack", speciesRules: zabrackId},
                 age: 25,
                 height: "6ft",
                 weight: 155,
