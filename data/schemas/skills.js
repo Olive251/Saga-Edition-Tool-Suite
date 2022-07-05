@@ -7,4 +7,4 @@ const Rules_Skill = new mongoose.Schema({
     actions: {name: String, description: String,}
 })
 
-module.esports = mongoose.model("Rules_Skills", Rules_Skills);
+module.exports = mongoose.model("Rules_Skills", Rules_Skills);

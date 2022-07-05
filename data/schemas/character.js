@@ -10,20 +10,23 @@ const Character_Abilities = new mongoose.Schema({
 })
 
 const Character_ClassLvl = new mongoose.Schema({
-    className: String,
+    class: String,
     level: Number,
     classRules: {type: mongoose.Schema.Types.ObjectId, ref: 'Rules_Class'},
 })
 
 const Character_Feat = new mongoose.Schema({
+    name: String,
     feat: {type: mongoose.Schema.Types.ObjectId, ref:'Rules_Feat'}
 })
 
 const Character_Talent = new mongoose.Schema({
+    name: String,
     talent: {type: mongoose.Schema.Types.ObjectId, ref:'Rules_Talent'}
 })
 
 const Character_ForcePower = new mongoose.Schema({
+    name: String,
     forcePower: {type: mongoose.Schema.Types.ObjectId, ref: 'Rules_ForcePower'}
 })
 
