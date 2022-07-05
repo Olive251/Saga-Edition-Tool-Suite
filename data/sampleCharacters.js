@@ -13,7 +13,7 @@ async function buildSampleCharacters() {
         (err) => console.error(err)
     )
 
-    if (!(await Rules_Species.find({name: "Zabrack"}))){
+    if ((await Rules_Species.find({name: "Zabrack"}))){
         const zabrack = await Rules_Species.create({
             name: "Zabrack",
             size: "MEDIUM",
@@ -27,9 +27,10 @@ async function buildSampleCharacters() {
     }
     let zabrackId = await Rules_Species.find({name: "Zabrack"}).lean();
     zabrackId = zabrackId[0]._id;
+    console.log(zabrackId);
 
-
-    if (!(await Character.find({name: "Imia Brae"}))){
+    
+    if ((await Rules_ForcePower.find({name: "Move Object"}))){
         const moveObject = await Rules_ForcePower.create({
             name: "Move Object",
             descriptorTag: "Telekinetic",
@@ -49,10 +50,12 @@ async function buildSampleCharacters() {
     let moveObjectId = await Rules_ForcePower.find({name: "Move Object"}).lean();
     moveObjectId = moveObjectId[0]._id;    
 
-    if (!(await Character.find({name: "Imia Brae"})))
+    if ((await Character.find({name: "Imia Brae"})))
     {
         try {
-            const character = await Character.create({
+            //const character = await Character.create({
+            const character = await Character.updateOne({_id: "62c438f19417d0d8150c41dc"}, 
+            {
                 name: "Imia Brae",
                 pronouns: "she/her",
                 species: {name: "Zabrack", speciesRules: zabrackId},
@@ -100,7 +103,7 @@ async function buildSampleCharacters() {
                 forcePowers: [{name: "Move Object", forcePower: moveObjectId}],
             });
     
-            await  character.save();
+            // await  character.save();
             let newCharacter = await Character.find({name: "Imia Brae"})
             console.log( newCharacter[0]);
     
