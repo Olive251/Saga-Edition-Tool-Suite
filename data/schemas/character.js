@@ -1,42 +1,49 @@
 const mongoose = require("mongoose");
 
 const Character_Abilities = new mongoose.Schema({
-    strength: {score: Number, bonus: Number},
-    dexterity: {score: Number, bonus: Number},
-    constitution: {score: Number, bonus: Number},
-    intelligence: {score: Number, bonus: Number},
-    wisdom: {score: Number, bonus: Number},
-    charisma: {score: Number, bonus: Number},
+    _id: false,
+    strength: {score: Number},
+    dexterity: {score: Number},
+    constitution: {score: Number},
+    intelligence: {score: Number},
+    wisdom: {score: Number},
+    charisma: {score: Number},
 })
 
 const Character_ClassLvl = new mongoose.Schema({
+    _id: false,
     class: String,
     level: Number,
     classRules: {type: mongoose.Schema.Types.ObjectId, ref: 'Rules_Class'},
 })
 
 const Character_Feat = new mongoose.Schema({
+    _id: false,
     name: String,
     feat: {type: mongoose.Schema.Types.ObjectId, ref:'Rules_Feat'}
 })
 
 const Character_Talent = new mongoose.Schema({
+    _id: false,
     name: String,
     talent: {type: mongoose.Schema.Types.ObjectId, ref:'Rules_Talent'}
 })
 
 const Character_ForcePower = new mongoose.Schema({
+    _id: false,
     name: String,
     forcePower: {type: mongoose.Schema.Types.ObjectId, ref: 'Rules_ForcePower'}
 })
 
 const Character_Defenses = new mongoose.Schema({
-    fortitude: {total: Number, lvlArmorBonus: Number, classBonus: Number, abilityModifer: Number, miscModifier: Number,},
-    reflex: {total: Number, lvlArmorBonus: Number, classBonus: Number, abilityModifer: Number, miscModifier: Number,},
-    will: {total: Number, lvlArmorBonus: Number, classBonus: Number, abilityModifer: Number, miscModifier: Number,},
+    _id: false,
+    fortitude: {total: Number,},
+    reflex: {total: Number,},
+    will: {total: Number,},
 })
 
 const Character_Skills = new mongoose.Schema({
+    _id: false,
     acrobatics: {trained: Boolean, skillFocus: Number, skillRules: {type: mongoose.Schema.Types.ObjectId, ref:'Rules_Skill'}},
 	athletics: {trained: Boolean, skillFocus: Number, skillRules: {type: mongoose.Schema.Types.ObjectId, ref:'Rules_Skill'}},
 	deception: {trained: Boolean, skillFocus: Number, skillRules: {type: mongoose.Schema.Types.ObjectId, ref:'Rules_Skill'}},
@@ -58,7 +65,9 @@ const Character_Skills = new mongoose.Schema({
 const Character = new mongoose.Schema({
     name: String,
     pronouns: String,
-    species: {_id: false, name: String, speciesRules: {_id: false, type: mongoose.Schema.Types.ObjectId, ref:'Rules_Species'}},
+    species: {_id: false, name: String, speciesRules: 
+        {_id: false, type: mongoose.Schema.Types.ObjectId, ref:'Rules_Species'}
+    },
     age: Number,
     height: String,
     weight: String,

@@ -11,11 +11,11 @@ async function buildSampleCharacters() {
         (err) => console.error(err)
     )
 
-    if (!(await Rules_Species.find({name: "Zabrack"}))){
+    if ((await Rules_Species.find({name: "Zabrack"}))){
         const zabrack = await Rules_Species.create({
             name: "Zabrack",
             size: "MEDIUM",
-            speed: 6,
+            movement: 6,
             additionalTraits: [
                 {name: "Heightened Awareness", description: "Having strong survival instincts and quic reactions, a Zabrack may choose to reroll any Perception check, but the result of the reroll must be accepted, even if it is worse."},
                 {name: "Superior Defenses", description: "Adapted to a very tough and trying environment, Zabrack gain a +1 species bonus to all of their defenses."},
@@ -24,7 +24,8 @@ async function buildSampleCharacters() {
         await zabrack.save();
     }
     let zabrackId = await Rules_Species.find({name: "Zabrack"}).lean();
-    zabrackId = zabrackId[0]._id;
+    try  {zabrackId = zabrackId[0]._id;}
+    catch (err){ console.log(`${err}`)};
     console.log(zabrackId);
 
     
@@ -51,8 +52,8 @@ async function buildSampleCharacters() {
     if ((await Character.find({name: "Imia Brae"})))
     {
         try {
-            //const character = await Character.create({
-            const character = await Character.updateOne({_id: "62c438f19417d0d8150c41dc"}, 
+            // const character = await Character.create(
+            const character = await Character.updateOne({_id: "62c59ead4e2dc9f907d8a27c"}, 
             {
                 name: "Imia Brae",
                 pronouns: "she/her",
@@ -64,12 +65,12 @@ async function buildSampleCharacters() {
                 class: {class: "Soldier", level: 5},
                 hp: {max: 80, current: 80, conditionTrack: 1},
                 abilities: {
-                    strength: {score: 14, bonus: 2},
-                    dexterity: {score: 16, bonus: 3},
-                    constitution: {score: 15, bonus: 2},
-                    intelligence: {score: 10, bonus: 0},
-                    wisdom: {score: 16, bonus: 3},
-                    charisma: {score: 18, bonus: 4},
+                    strength: {score: 14,},
+                    dexterity: {score: 16,},
+                    constitution: {score: 15,},
+                    intelligence: {score: 10,},
+                    wisdom: {score: 16,},
+                    charisma: {score: 18,},
                 },
                 forcePoints: 7,
                 destinyPoints: 1,
@@ -92,16 +93,15 @@ async function buildSampleCharacters() {
                     useTheForce: {trained: true, skillFocus: 1}
                 },
                 defenses: {
-                    fortitude: {total: 17, lvlArmorBonus: 2, classBonus: 2, abilityModifer: 2, miscModifier: 1,},
-                    reflex: {total: 19, lvlArmorBonus: 4, classBonus: 1, abilityModifer: 3, miscModifier: 1,},
-                    will: {total: 16, lvlArmorBonus: 2, classBonus: 0, abilityModifer: 3, miscModifier: 1,},
+                    fortitude: {total: 17,},
+                    reflex: {total: 19,},
+                    will: {total: 16,},
                 },
                 feats: [{name: "Force Sensitivity"}, {name: "Force Training"}, {name: "Quick Draw"}, {name: "Dual Wielding 1"},],
                 talents: [{name: "Jet Pack Training"}, {name: "Improved Trajectory"}, {name: "Burning Assault"},],
                 forcePowers: [{name: "Move Object", forcePower: moveObjectId}],
             });
-    
-            // await  character.save();
+            
             let newCharacter = await Character.find({name: "Imia Brae"})
             console.log( newCharacter[0]);
     

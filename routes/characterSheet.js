@@ -24,7 +24,6 @@ router.get('/:character', async(req,res) => {
     let searchID = req.params.character;
     try {
         let viewCharacter = await Character.find({_id: searchID}).lean();
-        // viewCharacter = viewCharacter[0];
         res.render('CharacterSheet', {title: `${viewCharacter[0].name}-Character Sheet`, character: viewCharacter[0]});
     } catch {
         let msg = `No character with {_id: ${req.params.character}} found...`

@@ -2,7 +2,7 @@ const mongoose = require ('mongoose');
 
 const Rules_ForcePower = new mongoose.Schema({
     name: String,
-    descriptorTag: [{type: String, enum: ["Dark Side", "Light Side", "Mind-Affecting", "Telekinetic"]}],
+    descriptorTag: [{_id: false, type: String, enum: ["Dark Side", "Light Side", "Mind-Affecting", "Telekinetic"]}],
     targets: String,
     initiator: String,
     forceCheckTable: [{

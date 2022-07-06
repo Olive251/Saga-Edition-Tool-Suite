@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const Rules_Species = new mongoose.Schema({
     name: String,
     abilityModifiers: {
+        _id: false,
         strength: Number,
         dexterity: Number,
         constitution: Number,
