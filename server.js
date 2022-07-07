@@ -6,7 +6,7 @@
 const express = require("express");
 const handlebars = require('express-handlebars');
 const path = require("path");
-
+const sampleData = require('./data/sampleCharacters.js');
 //route includes
 const homeRoute = require('./routes/homeRoute.js');
 const publicRoute = require('./routes/public.js');
@@ -34,12 +34,12 @@ app.set('view engine', 'hbs');
 app.set('views', './views');
 app.use(express.static(path.join(__dirname,'/public')));
 app.use(express.urlencoded({extended: true}));
-app.use((req,res,next) => {
-    let route = req.path.substring(1);
-    app.locals.activeRoute = (route == "/") ? "/" : "/" + route.replace(/\/(.*)/,"");
-    app.locals.viewingCategory = req.query.category;
-    next();
-})
+// app.use((req,res,next) => {
+//     let route = req.path.substring(1);
+//     app.locals.activeRoute = (route == "/") ? "/" : "/" + route.replace(/\/(.*)/,"");
+//     app.locals.viewingCategory = req.query.category;
+//     next();
+// })
 const port = process.env.PORT || 8080;
 
 app.use('/', homeRoute);

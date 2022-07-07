@@ -6,39 +6,32 @@
                     <div id="name" class="section-item">
                         <h2 id="character-name">Character Name:</h2>
                         <p>{{character.name}}</p>
-                        {{!-- <input type="text" id="character-name-input" class="character-info-input"/> --}}
                     </div>
                     <div id="player" class="section-item">
                         <h3 id="character-player">Player:</h3>
                         <p>{{character.playerName}}</p>
-                        {{!-- <input type="text" id="character-player-input" class="character-info-input"/> --}}
                     </div>
                     <div id="species" class="section-item">
                         <h3 id="character-species">Species:</h3>
                         <p>{{character.species}}</p>
-                        {{!-- <input type="text" id="character-species-input" class="character-info-input"/> --}}
                     </div>
                 </div>
                 <div class="row">
                     <div id="age" class="section-item">
                         <h3 id="character-age">Age:</h3>
                         <p>{{character.age}}</p>
-                        {{!-- <input type="text" id="character-age-input" class="character-info-input"/> --}}
                     </div>
                     <div id="character-pronouns" class="section-item">
                         <h3 id="pronounse">Pronouns: </h3>
                         <p>{{character.pronouns}}</p>
-                        {{!-- <input type="text" id="character-gender-input" class="character-info-input"/> --}}
                     </div>
                     <div id="height" class="section-item">
                         <h3 id="character-height">Height:</h3>
                         <p>{{character.height}}</p>
-                        {{!-- <input type="text" id="character-height-input" class="character-info-input"/> --}}
                     </div>
                     <div id="weight" class="section-item">
                         <h3 id="character-weight">Weight:</h3>
                         <p>{{character.weight}}</p>
-                        {{!-- <input type="text" id="character-weight-input" class="character-info-input"/> --}}
                     </div>
                 </div>
             </div>
@@ -47,12 +40,10 @@
                         <div class="classLevel-subsect">
                             <h3 id="character-class">Class:</h3>
                             <p>{{this.class}}</p>
-                            {{!-- <input type="text" id="character-class-input" class="character-info-input"/> --}}
                         </div>
                         <div class="classLevel-subsect">
                             <h3 id="character-class-level">Level:</h3>
                             <p>{{this.level}}</p>
-                            {{!-- <input type="number" id="character-level-input" class="character-info-input character-info-input-number"/> --}}
                         </div>
             </div>
             {{/each}}
@@ -61,8 +52,7 @@
         <div id="darkside-condition-row" class="row">
             <div id="dark-side-score" class ="character-section">
                 <div id="dark-side-score-tracker" class="section-item">
-                    <h3 id="character-dark-side-score">Dark Side Score:</h3>
-                    {{!-- <input type="number" id="character-level-input" class="character-info-input character-info-input-number"/> --}}
+                    <h3 id="character-dark-side-score">Dark Side Score: {{character.darksidePoints}}</h3>
                 </div>
             </div>
 
@@ -71,28 +61,24 @@
                 <div class="condition-tracker-step">
                     <div id="condition-tracker-step-primary-info" class="row">
                         <h3>-1</h3>
-                        {{!-- <button type="radial"></button> --}}
                     </div>
                     <p>-1 to ability checks, attacks, and defenses</p>
                 </div>
                 <div class="condition-tracker-step">
                     <div id="condition-tracker-step-primary-info" class="row">
                         <h3>-2</h3>
-                        {{!-- <button type="radial"></button> --}}
                     </div>
                     <p>-2 to ability checks, attacks, and defenses</p>
                 </div>
                 <div class="condition-tracker-step">
                     <div id="condition-tracker-step-primary-info" class="row">
                         <h3>-5</h3>
-                        {{!-- <button type="radial"></button> --}}
                     </div>
                     <p>-5 to ability checks, attacks, and defenses</p>
                 </div>
                 <div class="condition-tracker-step">
                     <div id="condition-tracker-step-primary-info" class="row">
                         <h3>-10</h3>
-                        {{!-- <button type="radial"></button> --}}
                     </div>
                     <p>-10 to ability checks, attacks, and defenses</p>
                 </div>
@@ -111,37 +97,31 @@
                 <div id="strength" class="character-attribute">
                     <h3>Strength</h3>
                     <h4>{{character.abilities.strength.score}}</h4>
-                    {{!-- <input type="number" class="character-info-input character-info-input-number character-attribute-score-input" id="character-attribute-str"/> --}}
-                    <h4 class="attribute-modifier">Modifier: {{character.abilities.strenth.bonus}}</h4>
+                    <h4 class="attribute-modifier">Modifier: {{character.abilities.strength.bonus}}</h4>
                 </div>
                 <div id="dexterity" class="character-attribute">
                     <h3>Dexterity</h3>
                     <h4>{{character.abilities.dexterity.score}}</h4>
-                    {{!-- <input type="number" class="character-info-input character-info-input-number character-attribute-score-input" id="character-attribute-dex"/> --}}
                     <h4 class="attribute-modifier">Modifier: {{character.abilities.dexterity.bonus}}</h4>
                 </div>
                 <div id="constitution" class="character-attribute">
                     <h3>Constitution</h3>
                     <h4>{{character.abilities.constitution.score}}</h4>
-                    {{!-- <input type="number" class="character-info-input character-info-input-number character-attribute-score-input" id="character-attribute-con"/> --}}
                     <h4 class="attribute-modifier">Modifier: {{character.abilities.constitution.bonus}}</h4>
                 </div>
                 <div id="intelligence" class="character-attribute">
                     <h3>Intelligence</h3>
                     <h4>{{character.abilities.intelligence.score}}</h4>
-                    {{!-- <input type="number" class="character-info-input character-info-input-number character-attribute-score-input" id="character-attribute-int"/> --}}
                     <h4 class="attribute-modifier">Modifier: {{character.abilities.intelligence.bonus}}</h4>
                 </div>
                 <div id="wisdom" class="character-attribute">
                     <h3>Wisdom</h3>
                     <h4>{{character.abilities.wisdom.score}}</h4>
-                    {{!-- <input type="number" class="character-info-input character-info-input-number character-attribute-score-input" id="character-attribute-wis"/> --}}
                     <h4 class="attribute-modifier">Modifier: {{character.abilities.wisdom.bonus}}</h4>
                 </div>
                 <div id="charisma" class="character-attribute">
                     <h3>Charisma</h3>
                     <h4>{{character.abilities.charisma.score}}</h4>
-                    {{!-- <input type="number" class="character-info-input character-info-input-number character-attribute-score-input" id="character-attribute-cha"/> --}}
                     <h4 class="attribute-modifier">Modifier: {{character.abilities.charisma.bonus}}</h4>
                 </div>
             </div>
