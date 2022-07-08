@@ -23,6 +23,9 @@ namespace characterHandling {
         height: string;
         weight: string;
         playerName: string;
+        forcePoints: number;
+        destinyPoints: number;
+        darkSideScore: number;
         species: {
             name: string;
             movement: number;
@@ -70,6 +73,25 @@ namespace characterHandling {
             useComputer: {bonus: number, rulesId: Types.ObjectId};
             useTheForce: {bonus: number, rulesId: Types.ObjectId};
         };
+        feats: [{
+            name: string, 
+            bonus: [Bonus], 
+            rulesID: Types.ObjectId
+        }];
+        talents: [{
+            name: string,
+            bonus: [Bonus],
+            rulesID: Types.ObjectId
+        }];
+        weapons: [{
+            name: string,
+            baseDamage: string,
+        }];
+
+        constructor(){
+
+        };
+
     }
 }
 

@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const Rules_Bonus = require("./bonus.js");
 
 const classRulesTable = new mongoose.Schema({
     _id: false,

@@ -58,25 +58,30 @@
 
             <div id="condition-tracker" class="condition-tracker character-section row">
                 <h2 id="condition-tracker-title">Condition Tracker</h2>
-                <div class="condition-tracker-step">
+                <div class="condition-tracker-step-0">
+                    <div id="condition-tracker-step-primary-info" class="row">
+                        <h3>0</h3>
+                    </div>
+                </div>
+                <div class="condition-tracker-step" id="condition-step-1">
                     <div id="condition-tracker-step-primary-info" class="row">
                         <h3>-1</h3>
                     </div>
                     <p>-1 to ability checks, attacks, and defenses</p>
                 </div>
-                <div class="condition-tracker-step">
+                <div class="condition-tracker-step"id="condition-step-2">
                     <div id="condition-tracker-step-primary-info" class="row">
                         <h3>-2</h3>
                     </div>
                     <p>-2 to ability checks, attacks, and defenses</p>
                 </div>
-                <div class="condition-tracker-step">
+                <div class="condition-tracker-step" id="condition-step-3">
                     <div id="condition-tracker-step-primary-info" class="row">
                         <h3>-5</h3>
                     </div>
                     <p>-5 to ability checks, attacks, and defenses</p>
                 </div>
-                <div class="condition-tracker-step">
+                <div class="condition-tracker-step" id="condition-step-4">
                     <div id="condition-tracker-step-primary-info" class="row">
                         <h3>-10</h3>
                     </div>
@@ -127,14 +132,14 @@
             </div>
 
             <div id="quick-reference" class="character-section">
-                <div id="speed" class="quick-ref-item">
+                <div id="movement" class="quick-ref-item">
                     <h3>Movement: {{character.movement}}</h3>
                 </div>
                 <div id="initiative-bonus" class="quick-ref-item">
                     <h3>Initiative bonus: {{character.initiativeBonus}}</h3>
                 </div>
                 <div id="base-attack-bonus" class="quick-ref-item">
-                    <h3>Movement: {{character.initiativeBonus}}</h3>
+                    <h3>Base Attack Bonus: {{character.initiativeBonus}}</h3>
                 </div>
                 <div id="damage-threshold" class="quick-ref-item">
                     <h3>Damage threshold: {{character.damageThreshold}}</h3>
