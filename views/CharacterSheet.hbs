@@ -161,9 +161,18 @@
         </div>
 
         <div id="defense-classes" class="subsection">
-            <div id="fortitude-defence" class="defense-section"></div>
-            <div id="reflex-defence" class="defense-section"></div>
-            <div id="will-defence" class="defense-section"></div>
+            <div id="fortitude-defence" class="defense-section">
+                <h3>Fortitude</h3>
+                <h2>{{character.defenses.fortitude}}</h2>
+            </div>
+            <div id="reflex-defence" class="defense-section">
+                <h3>Reflex</h3>
+                <h2>{{character.defenses.reflex}}</h2>
+            </div>
+            <div id="will-defence" class="defense-section">
+                <h3>Will</h3>
+                <h2>{{character.defenses.will}}</h2>
+            </div>
         </div>
         </div>
 
@@ -172,14 +181,67 @@
         </div>
 
         <div id="force-powers" class="section">
-            
+            <h1>Force Powers</h1>
+            {{#each character.forcePowers}}
+            <a><h2>{{character.forcePowers.name}}</h2></a>
+            {{!-- TODO - setup to view the forcePower ability --}}
         </div>
 
         <div id="skills" class="subsection">
+            <h2>Skills</h2>
             <div id="acrobatics" class="skill-details">
+                <h4>Acrobatics: {{character.skills.acrobatics}}</h4>
+            </div>
 
+            <div id="athletics" class="skill-details">
+                <h4>Athletics: {{character.skills.athletics}}</h4>
+            </div>
+            <div id="deception" class="skill-details">
+                <h4>Deception: {{character.skills.deception}}</h4>
+            </div>
+            <div id="gatherInfo" class="skill-details">
+                <h4>Gather Information: {{character.skills.gatherInfo}}</h4>
+            </div>
+            <div id="inititative" class="skill-details">
+                <h4>Deception: {{character.skills.inititative}}</h4>
+            </div>
+            <div id="knowledge" class="skill-details">
+                {{#each character.skills.deception.knowledge}}
+                <h4>Knowledge- {{character.skills.knowledge.type}}: {{character.skills.knowledge}}</h4>
+                {{/each}}
+            </div>
+            <div id="mechanics" class="skill-details">
+                <h4>Mechanics: {{character.skills.mechanics}}</h4>
+            </div>
+            <div id="perception" class="skill-details">
+                <h4>Perception: {{character.skills.perception}}</h4>
+            </div>
+            <div id="persuasion" class="skill-details">
+                <h4>Persuasion: {{character.skills.persuasion}}</h4>
+            </div>
+            <div id="pilot" class="skill-details">
+                <h4>Pilot: {{character.skills.pilot}}</h4>
+            </div>
+            <div id="ride" class="skill-details">
+                <h4>Ride: {{character.skills.ride}}</h4>
+            </div>
+            <div id="stealth" class="skill-details">
+                <h4>Stealth: {{character.skills.stealth}}</h4>
+            </div>
+            <div id="survival" class="skill-details">
+                <h4>Survival: {{character.skills.survival}}</h4>
+            </div>
+            <div id="treatInjury" class="skill-details">
+                <h4>Treat Injury: {{character.skills.treatInjury}}</h4>
+            </div>
+            <div id="useComputer" class="skill-details">
+                <h4>Use Computer: {{character.skills.useComputer}}</h4>
+            </div>
+            <div id="useTheForce" class="skill-details">
+                <h4>Use the Force: {{character.skills.useTheForce}}</h4>
             </div>
         </div>
+
 
         <div id="weapons" class="subsection">
             <div id="weapon-1" class="weapon-details">
