@@ -37,9 +37,9 @@ const Character_ForcePower = new mongoose.Schema({
 
 const Character_Defenses = new mongoose.Schema({
     _id: false,
-    fortitude: {total: Number,},
-    reflex: {total: Number,},
-    will: {total: Number,},
+    fortitude: Number,
+    reflex: Number,
+    will: Number,
 })
 
 const Character_Skills = new mongoose.Schema({
