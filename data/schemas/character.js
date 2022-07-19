@@ -32,7 +32,7 @@ const Character_Talent = new mongoose.Schema({
 const Character_ForcePower = new mongoose.Schema({
     _id: false,
     name: String,
-    forcePower: {type: mongoose.Schema.Types.ObjectId, ref: 'Rules_ForcePower'}
+    forcePowerRules: {type: mongoose.Schema.Types.ObjectId, ref: 'Rules_ForcePower'}
 })
 
 const Character_Defenses = new mongoose.Schema({
@@ -43,13 +43,15 @@ const Character_Defenses = new mongoose.Schema({
 })
 
 const Character_Skills = new mongoose.Schema({
+    //MODIFIED FROM ORIGINAL SE RULESET
+    //  house rules to make fewer skills for the sake of increasing individual character utility
     _id: false,
     acrobatics: {trained: Boolean, skillFocus: Number, skillRules: {type: mongoose.Schema.Types.ObjectId, ref:'Rules_Skill'}},
 	athletics: {trained: Boolean, skillFocus: Number, skillRules: {type: mongoose.Schema.Types.ObjectId, ref:'Rules_Skill'}},
 	deception: {trained: Boolean, skillFocus: Number, skillRules: {type: mongoose.Schema.Types.ObjectId, ref:'Rules_Skill'}},
 	gatherInfo: {trained: Boolean, skillFocus: Number, skillRules: {type: mongoose.Schema.Types.ObjectId, ref:'Rules_Skill'}},
 	initiative: {trained: Boolean, skillFocus: Number, skillRules: {type: mongoose.Schema.Types.ObjectId, ref:'Rules_Skill'}},
-	knowledge: [{type: String, trained: Boolean, skillFocus: Number}], 
+	knowledge: [{type: String, trained: Boolean, skillFocus: Number, skillRules: {type: mongoose.Schema.Types.ObjectId, ref:'Rules_Skill'}}], 
 	mechanics: {trained: Boolean, skillFocus: Number, skillRules: {type: mongoose.Schema.Types.ObjectId, ref:'Rules_Skill'}},
 	perception: {trained: Boolean, skillFocus: Number, skillRules: {type: mongoose.Schema.Types.ObjectId, ref:'Rules_Skill'}},
 	persuasion: {trained: Boolean, skillFocus: Number, skillRules: {type: mongoose.Schema.Types.ObjectId, ref:'Rules_Skill'}},
