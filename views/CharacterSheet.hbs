@@ -183,62 +183,62 @@
         <div id="force-powers" class="section">
             <h1>Force Powers</h1>
             {{#each character.forcePowers}}
-            <a><h2>{{character.forcePowers.name}}</h2></a>
+            <a><h2>{{this.name}}</h2></a>
             {{!-- TODO - setup to view the forcePower ability --}}
         </div>
 
         <div id="skills" class="subsection">
             <h2>Skills</h2>
             <div id="acrobatics" class="skill-details">
-                <h4>Acrobatics: {{character.skills.acrobatics}}</h4>
+                <h4>Acrobatics: {{character.skills.acrobatics.bonus}}</h4>
             </div>
 
             <div id="athletics" class="skill-details">
-                <h4>Athletics: {{character.skills.athletics}}</h4>
+                <h4>Athletics: {{character.skills.athletics.bonus}}</h4>
             </div>
             <div id="deception" class="skill-details">
-                <h4>Deception: {{character.skills.deception}}</h4>
+                <h4>Deception: {{character.skills.deception.bonus}}</h4>
             </div>
             <div id="gatherInfo" class="skill-details">
-                <h4>Gather Information: {{character.skills.gatherInfo}}</h4>
+                <h4>Gather Information: {{character.skills.gatherInfo.bonus}}</h4>
             </div>
             <div id="inititative" class="skill-details">
-                <h4>Deception: {{character.skills.inititative}}</h4>
+                <h4>Deception: {{character.skills.inititative.bonus}}</h4>
             </div>
             <div id="knowledge" class="skill-details">
-                {{#each character.skills.deception.knowledge}}
-                <h4>Knowledge- {{character.skills.knowledge.type}}: {{character.skills.knowledge}}</h4>
+                {{#each character.skills.deception.knowledge.bonus}}
+                <h4>Knowledge- {{this.type}}: {{this.bonus}}</h4>
                 {{/each}}
             </div>
             <div id="mechanics" class="skill-details">
-                <h4>Mechanics: {{character.skills.mechanics}}</h4>
+                <h4>Mechanics: {{character.skills.mechanics.bonus}}</h4>
             </div>
             <div id="perception" class="skill-details">
-                <h4>Perception: {{character.skills.perception}}</h4>
+                <h4>Perception: {{character.skills.perception.bonus}}</h4>
             </div>
             <div id="persuasion" class="skill-details">
-                <h4>Persuasion: {{character.skills.persuasion}}</h4>
+                <h4>Persuasion: {{character.skills.persuasion.bonus}}</h4>
             </div>
             <div id="pilot" class="skill-details">
-                <h4>Pilot: {{character.skills.pilot}}</h4>
+                <h4>Pilot: {{character.skills.pilot.bonus}}</h4>
             </div>
             <div id="ride" class="skill-details">
-                <h4>Ride: {{character.skills.ride}}</h4>
+                <h4>Ride: {{character.skills.ride.bonus}}</h4>
             </div>
             <div id="stealth" class="skill-details">
-                <h4>Stealth: {{character.skills.stealth}}</h4>
+                <h4>Stealth: {{character.skills.stealth.bonus}}</h4>
             </div>
             <div id="survival" class="skill-details">
-                <h4>Survival: {{character.skills.survival}}</h4>
+                <h4>Survival: {{character.skills.survival.bonus}}</h4>
             </div>
             <div id="treatInjury" class="skill-details">
-                <h4>Treat Injury: {{character.skills.treatInjury}}</h4>
+                <h4>Treat Injury: {{character.skills.treatInjury.bonus}}</h4>
             </div>
             <div id="useComputer" class="skill-details">
-                <h4>Use Computer: {{character.skills.useComputer}}</h4>
+                <h4>Use Computer: {{character.skills.useComputer.bonus}}</h4>
             </div>
             <div id="useTheForce" class="skill-details">
-                <h4>Use the Force: {{character.skills.useTheForce}}</h4>
+                <h4>Use the Force: {{character.skills.useTheForce.bonus}}</h4>
             </div>
         </div>
 
