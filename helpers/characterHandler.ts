@@ -1,5 +1,4 @@
-const mongoose = require("mongoose");
-import {Schema, Types} from 'mongoose';
+import mongoose, {Schema, Types} from 'mongoose';
 const Character = require('./schemas/character.js');
 const Rules_Class = require('./schemas/class.js');
 const Rules_Skills = require('./schemas/skills.js');
@@ -11,6 +10,7 @@ const Rules_Species = require('./schemas/species.js');
 
 
 namespace characterHandling {
+    
     class Bonus {
         target: string; //  path to character trait that will receive the bonus
         bonus: number; //   positive or negative bonus to the target trait
@@ -31,12 +31,12 @@ namespace characterHandling {
             movement: number;
             additionalTraits: {name: string, rulesId: Types.ObjectId, bonus: [Bonus],};
         };
-        class: {
+        class: [{
             className: string;
             level: number;
             rulesId: Types.ObjectId;
             bonus: [Bonus];
-        };
+        }];
         abilities: {
             strength: { score: number, bonus: number, };
             dexterity: { score: number, bonus: number, };
@@ -87,6 +87,10 @@ namespace characterHandling {
             name: string,
             baseDamage: string,
         }];
+        forcePowers: [{
+            name: string,
+            forcePower: Types.ObjectId,
+        }]
 
         constructor(){
 
