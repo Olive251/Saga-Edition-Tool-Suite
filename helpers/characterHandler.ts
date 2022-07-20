@@ -56,6 +56,8 @@ namespace characterHandling {
             conditionTrack: number,
         };
         skills: {
+            //  TODO change to include rules info for tooltips
+            //  keep the objectid for the purpose of creating hyperlinks to the items full info
             acrobatics: {bonus: number, rulesId: Types.ObjectId,};
             athletics: {bonus: number, rulesId: Types.ObjectId,};
             deception: {bonus: number, rulesId: Types.ObjectId,};
@@ -74,11 +76,15 @@ namespace characterHandling {
             useTheForce: {bonus: number, rulesId: Types.ObjectId};
         };
         feats: [{
+            //  TODO change to include rules info for tooltips
+            //  keep the objectid for the purpose of creating hyperlinks to the items full info
             name: string, 
             bonus: [Bonus], 
             rulesID: Types.ObjectId
         }];
         talents: [{
+            //  TODO change to include rules info for tooltips
+            //  keep the objectid for the purpose of creating hyperlinks to the items full info
             name: string,
             bonus: [Bonus],
             rulesID: Types.ObjectId
@@ -113,6 +119,19 @@ const characterHandler = async(characterId) => {
     const rawCharacterClass = await Rules_Class.findById(rawCharacter.class.classRules).lean();
     const rawCharacterSpecies = await Rules_Species.findById(rawCharacter.species.speciesRules).lean();
     
+    var rawCharacterForcePowers:any = [];
+    //gathering full details of the force powers the character has
+    rawCharacter.forcePowers.forEach( async fp => {
+        let rawfp = await Rules_ForcePower.findById(fp.forcePowerRules).lean();
+        rawCharacterForcePowers.push(rawfp);
+    });
+
+    var rawSkills:any = [];
+    //gather full details of skills
+    rawCharacter.skills.forEach(async skill => {
+        let rawSkill = await Rules_Skills.findById(skill.skillRules).lean();
+        rawSkills.push(rawSkill);
+    })
 
     mongoose.connection.close(()=> {
         console.log("Disconnected from database...");
