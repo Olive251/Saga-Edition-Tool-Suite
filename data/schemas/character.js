@@ -12,7 +12,7 @@ const Character_Abilities = new mongoose.Schema({
 
 const Character_ClassLvl = new mongoose.Schema({
     _id: false,
-    class: String,
+    className: String,
     level: Number,
     classRules: {type: mongoose.Schema.Types.ObjectId, ref: 'Rules_Class'},
 })
@@ -76,6 +76,7 @@ const Character = new mongoose.Schema({
     playerName: String,
     class: [Character_ClassLvl],
     hp: {
+        //rolledNumber: Number,
         max: Number, 
         current: Number,
         conditionTrack: Number,
