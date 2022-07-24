@@ -1,5 +1,4 @@
-const mongoose = require("mongoose");
-import {Schema, Types} from 'mongoose';
+import mongoose, {Schema, Types} from 'mongoose';
 const Character = require('./schemas/character.js');
 const Rules_Class = require('./schemas/class.js');
 const Rules_Skills = require('./schemas/skills.js');
